@@ -1,0 +1,18 @@
+{
+    "name": "codebreaker/randomquotes",
+    "description": "This library will generate a random quote for you.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tirth Jain",
+            "email": "tirth886jain@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Test\\": "src/"
+        }
+    },
+    "require": {}
+}
