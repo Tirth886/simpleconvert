@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Test\\": "src/"
+            "SimpleConver\\": "src/"
         }
     },
     "require": {}
