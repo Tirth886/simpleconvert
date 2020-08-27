@@ -1,14 +1,16 @@
 <?php
 
+# THIS FILE CONTAIN THE USAGE FOR THE LIBRARY
+
 require_once './src/SimpleConvert.php';
 
-$con = new mysqli("localhost", "root", "", "test");
+$con = new mysqli("", "", "", "");
 
 $query = "SELECT * FROM mytable";
 
 $response = $con->query($query);
 
-$query = "SHOW COLUMNS FROM mytable;";
+$query = "SHOW COLUMNS FROM {tablename};";
 
 $header = $con->query($query);
 $header = $header->fetch_all();
