@@ -1,6 +1,6 @@
 {
     "name": "codebreaker/simpleconvert",
-    "description": "This library will generate a random quote for you.",
+    "description": "SimpleConvert is a library written in pure PHP and providing a set of functions that allow you to export your data into EXCEL (.xls). This library providing you to download (.xls) file and view data in the browser",
     "keywords": [
         "convert",
         "excel",
