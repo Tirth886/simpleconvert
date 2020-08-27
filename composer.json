@@ -1,18 +1,35 @@
 {
-    "name": "codebreaker/randomquotes",
+    "name": "codebreaker/simpleconvert",
     "description": "This library will generate a random quote for you.",
+    "keywords": [
+        "convert",
+        "excel",
+        "xls",
+        "file",
+        "phpspreadsheet",
+        "sheet",
+        "spreadsheet",
+        "simpleconvert",
+        "simple"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [
         {
             "name": "Tirth Jain",
-            "email": "tirth886jain@gmail.com"
+            "email": "tirth886jain@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Tirth886/simpleconvert.git"
         }
     ],
     "autoload": {
         "psr-4": {
-            "SimpleConver\\": "src/"
+            "SimpleConvert\\": "src/"
         }
-    },
-    "require": {}
+    }
 }
