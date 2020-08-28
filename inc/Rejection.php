@@ -1,8 +1,8 @@
 <?php 
 
     class Rejection extends Exception{
-        protected int    $code_   = 0;
-        protected string $message_ = '';
+        private $code_   = 0;
+        private $message_ = '';
         protected function __construct(String $message ,int $code = 400) {
             if (is_int($code)) {
                 $this->code_    = $code;

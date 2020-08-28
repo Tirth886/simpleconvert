@@ -7,8 +7,7 @@
         protected $TABLE;
         
         public function download($_FILENAME,$TABLE_){
-            echo $TABLE_;
-            
+            echo $TABLE_;   
         }
         public function exception(String $message, int $code = 400){
             return new Rejection($message, $code);
@@ -22,25 +21,27 @@
 
         public function TableOpen($style = null){
             return "
-                <table border=1 style='color : green;'>
+                <table border='1' cellspacing='0' cellpadding='5'>
             ";
         }
         
         public function TableCols($data = ''){
-            return "<td>{$data}</td>";
+            return "<td align='center'>{$data}</td>";
         }
         public function TableHead(String $data = ''){
             return "<th>{$data}</th>";
         }
-        public function process_xls(Object $data,$head,Bool $download,String $_FILENAME){
-            $this->TABLE = $this->TableOpen();
+        public function process_xls(Object $data,Bool $download,String $_FILENAME){
+            $this->TABLE  = $this->TableOpen();
             $this->TABLE .= "<thead><tr>";
-            $this->TABLE_HEAD = $head;
-            foreach($this->TABLE_HEAD as $head_){
-                $this->TABLE .= $this->TableHead($head_);
-            }
+
             while($response = $data->fetch_assoc()){
+                $this->TABLE_HEAD = array_keys($response);
                 $this->TABLE_BODY[] = $response;
+            }
+
+            foreach($this->TABLE_HEAD as $head_){
+                $this->TABLE .= $this->TableHead(ucwords($head_));
             }
             $this->TABLE .= "</tr></thead>";
             $this->TABLE .= "<tbody>";
@@ -62,17 +63,17 @@
             }
         }
         
-        public function prepare(Object $reponse,$head,String $type,Bool $download = false,String $_FILENAME){
+        public function prepare(Object $reponse,String $type,Bool $download = false,String $_FILENAME){
             if (is_object($reponse)) {
                 switch ($type) {
                     case 'xls':
-                        return $this->process_xls($reponse,$head,$download,$_FILENAME);
+                        // $this->HEAD = $this->head($reponse);
+                        return $this->process_xls($reponse,$download,$_FILENAME);
                     break;
                     
                     default:
                         break;
                 }
-
             }else{
                 throw $this->exception("Must Be Object");
             }
