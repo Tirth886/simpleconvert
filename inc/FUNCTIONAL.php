@@ -6,9 +6,9 @@
         protected $TABLE_BODY;
         protected $TABLE;
         
-        public function download($_FILENAME){
-            header("Content-Type: application/vnd.ms-excel");
-            header("Content-Disposition: attachment; filename=\"{$_FILENAME}\"");
+        public function download($_FILENAME,$TABLE_){
+            echo $TABLE_;
+            
         }
         public function exception(String $message, int $code = 400){
             return new Rejection($message, $code);
@@ -32,7 +32,7 @@
         public function TableHead(String $data = ''){
             return "<th>{$data}</th>";
         }
-        public function process_xls(Object $data,$head){
+        public function process_xls(Object $data,$head,Bool $download,String $_FILENAME){
             $this->TABLE = $this->TableOpen();
             $this->TABLE .= "<thead><tr>";
             $this->TABLE_HEAD = $head;
@@ -52,14 +52,21 @@
                 $this->TABLE .= "</tr>";
             }
             $this->TABLE .= "</tbody>";
-            return $this->TABLE .= $this->TableClose();
+            $this->TABLE .= $this->TableClose();
+            if ($download) {
+                echo $this->TABLE;
+                header("Content-Type: application/vnd.ms-excel;charset=utf8");
+                header("Content-Disposition: attachment; filename=\"{$_FILENAME}\"");
+            }else{
+                echo $this->TABLE;                
+            }
         }
         
-        public function prepare(Object $reponse,$head,String $type){
+        public function prepare(Object $reponse,$head,String $type,Bool $download = false,String $_FILENAME){
             if (is_object($reponse)) {
                 switch ($type) {
                     case 'xls':
-                        return $this->process_xls($reponse,$head);
+                        return $this->process_xls($reponse,$head,$download,$_FILENAME);
                     break;
                     
                     default:

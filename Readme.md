@@ -4,7 +4,7 @@ SimpleConvert is a library written in pure PHP and providing a set of functions 
 
 ## Installation
 
-Use the package manager [composer](https://packagist.org/packages/codebreaker/simpleconvert) to install foobar.
+Use the package manager [composer](https://packagist.org/packages/codebreaker/simpleconvert) to install SimpleConvert.
 
 ```bash
 composer require codebreaker/simpleconvert

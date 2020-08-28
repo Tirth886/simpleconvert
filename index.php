@@ -4,13 +4,13 @@
 
 require_once './src/SimpleConvert.php';
 
-$con = new mysqli("", "", "", "");
+$con = new mysqli("localhost", "root", "", "test");
 
-$query = "SELECT * FROM mytable";
+$query = "SELECT * FROM user";
 
 $response = $con->query($query);
 
-$query = "SHOW COLUMNS FROM {tablename};";
+$query = "SHOW COLUMNS FROM user;";
 
 $header = $con->query($query);
 $header = $header->fetch_all();
@@ -19,11 +19,16 @@ foreach ($header as $head){
 }
 
 $header = $data;
-$convert = new \SimpleConvert\SimpleConvert((object)[
-  "header" => $header,
-  "result" => $response,
-]);
+if ($response != "") {
+  $convert = new \SimpleConvert\SimpleConvert((object)[
+    "header" => $header,
+    "result" => $response,
+  ]);
+  print_r($convert->xls('fd.xls',false));
+}else{
+  echo "something went wrong";
+}
 
-print_r($convert->xls('fd.xls',true));
+
 
 echo "\n";

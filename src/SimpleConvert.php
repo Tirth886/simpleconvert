@@ -39,13 +39,7 @@ class SimpleConvert extends FUNCTIONAL implements Convert{
                 throw $this->exception("FileName Must Be String");
             }
         }
-        $this->TABLE_RESPONSE = $this->prepare($this->response,$this->header,"xls");
-        $this->TABLE_RESPONSE;
-        if ($download) {
-            $this->download($this->FILENAME);
-        }else{
-            return $this->TABLE_RESPONSE;
-        }
+        return $this->TABLE_RESPONSE = $this->prepare($this->response,$this->header,"xls",$download,$this->FILENAME);
         
     }
 }
