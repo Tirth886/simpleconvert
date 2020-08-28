@@ -25,7 +25,7 @@ $convert = new \SimpleConvert\SimpleConvert($var); # Pass Argument Must Be Objec
 
 $convert->xls('filename.xls',true); # filename and download
 
-$convert->xls(); # filename and view
+$convert->xls(); # view in browser
 ```
 <hr>
 

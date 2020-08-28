@@ -11,7 +11,7 @@ $query = "SELECT * FROM user";
 $response = $con->query($query);
 if ($response != "") {
   $convert = new \SimpleConvert\SimpleConvert((object)["result" => $response]);
-  $convert->xls();
+  $convert->xls('test.xls',true);
 }else{
   echo "something went wrong";
 }
