@@ -29,5 +29,10 @@ $convert->xls(); # view in browser
 ```
 <hr>
 
+## Author
+
+### [TIRTH JAIN](https://www.instagram.com/tirth.jain886/)
+### [GIT](https://github.com/Tirth886/simpleconvert.git)
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
